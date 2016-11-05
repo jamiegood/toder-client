@@ -2,17 +2,44 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-/*
-  Generated class for the Auth provider.
+import { Storage } from '@ionic/storage';
 
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
+
+
+var myconfig ={
+  test: 'testing1'
+}
 @Injectable()
 export class Auth {
 
-  constructor(public http: Http) {
+  constructor(public http: Http, public storage: Storage) {
     console.log('Hello Auth Provider');
+    console.log(myconfig);
+  }
+
+  checkAuthentication() {
+
+  }
+
+
+  createAccount(account) {
+
+  }
+
+  login(user) {
+
+
+   return new Promise( (resolve, reject) => {
+
+
+     //this.http.post('')
+   });
+
+  }
+
+
+  logout(){
+
   }
 
 }
