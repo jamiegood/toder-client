@@ -6,18 +6,24 @@ import { Storage } from '@ionic/storage';
 
 
 
-var myconfig ={
-  test: 'testing1'
-}
+
+
 @Injectable()
 export class Auth {
 
 
   public token: any;
+  public myconfig: any;
 
   constructor(public http: Http, public storage: Storage) {
+
+    this.myconfig ={
+      test: 'testing1',
+      'api_url': 'http://localhost:8080'
+    }
+
     console.log('Hello Auth Provider');
-    console.log(myconfig);
+    console.log(this.myconfig);
   }
 
   checkAuthentication(){
@@ -32,7 +38,7 @@ export class Auth {
             let headers = new Headers();
             headers.append('Authorization', this.token);
 
-            this.http.get('https://YOUR_HEROKU_APP.herokuapp.com/api/auth/protected', {headers: headers})
+            this.http.get(this.myconfig.api_url + '/api/auth/protected', {headers: headers})
                 .subscribe(res => {
                     resolve(res);
                 }, (err) => {
@@ -53,7 +59,7 @@ export class Auth {
           let headers = new Headers();
           headers.append('Content-Type', 'application/json');
 
-          this.http.post('https://YOUR_HEROKU_APP.herokuapp.com/api/auth/register', JSON.stringify(details), {headers: headers})
+          this.http.post(this.myconfig.api_url + '/api/auth/register', JSON.stringify(details), {headers: headers})
             .subscribe(res => {
 
               let data = res.json();
@@ -70,13 +76,14 @@ export class Auth {
     }
 
       login(credentials){
-        
+
         return new Promise((resolve, reject) => {
 
             let headers = new Headers();
             headers.append('Content-Type', 'application/json');
 
-            this.http.post('https://YOUR_HEROKU_APP.herokuapp.com/api/auth/login', JSON.stringify(credentials), {headers: headers})
+          //  this.http.post('https://fierce-garden-37056.herokuapp.com/api/auth/login', JSON.stringify(credentials), {headers: headers})
+            this.http.post(this.myconfig.api_url + '/api/auth/login', JSON.stringify(credentials), {headers: headers})
               .subscribe(res => {
 
                 let data = res.json();
