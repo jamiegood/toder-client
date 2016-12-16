@@ -3,6 +3,7 @@ import { NavController, LoadingController } from 'ionic-angular';
 import { Auth } from '../../providers/auth';
 import { HomePage } from '../home/home';
 import { SignupPage } from '../signup-page/signup-page';
+//import { MarkdownComponent } from '../../directives/markdown';
 
 @Component({
   selector: 'login-page',
@@ -10,13 +11,26 @@ import { SignupPage } from '../signup-page/signup-page';
 })
 export class LoginPage {
 
+
     email: string;
     password: string;
     loading: any;
+    markdown: string;
 
     constructor(public navCtrl: NavController, public authService: Auth, public loadingCtrl: LoadingController) {
 
+       this.markdown = "# This is markdown  *ehre*";
+      // setTimeout(() => {
+      //         this.markdown = `
+      //   # Title
+      //
+      //   Some __test__
+      //   `;
+      //       }, 4000);
     }
+
+
+
 
     ionViewDidLoad() {
 

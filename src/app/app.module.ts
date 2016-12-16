@@ -7,13 +7,15 @@ import { LoginPage } from '../pages/login-page/login-page';
 import { SignupPage } from '../pages/signup-page/signup-page';
 import { Todos } from '../providers/todos';
 import { Auth } from '../providers/auth';
+import { MarkdownComponent} from '../directives/markdown';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    MarkdownComponent    
   ],
   imports: [
     IonicModule.forRoot(MyApp)
