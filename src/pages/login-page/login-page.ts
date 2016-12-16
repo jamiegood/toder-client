@@ -16,17 +16,27 @@ export class LoginPage {
     password: string;
     loading: any;
     markdown: string;
+    title: string;
 
     constructor(public navCtrl: NavController, public authService: Auth, public loadingCtrl: LoadingController) {
 
-       this.markdown = "# This is markdown  *ehre*";
+
+    //  this.title = "**testing** is the title";
+
+      this.markdown = "";
+
       // setTimeout(() => {
-      //         this.markdown = `
-      //   # Title
-      //
-      //   Some __test__
-      //   `;
-      //       }, 4000);
+      //   // this.markdown = `*testing* and this is another one **testing2** and this is
+      //   // > ok this is another one`;
+      //   this.markdown = this.title;
+      // }, 1000);
+
+    }
+
+    onKey(event) {
+      console.log(event);
+
+      this.markdown =  event.target.value;
     }
 
 

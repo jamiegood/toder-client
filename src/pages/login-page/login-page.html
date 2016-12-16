@@ -45,6 +45,12 @@
      </div>
 
      <div>
+
+       <ion-item>
+           <ion-label floating>Title</ion-label>
+           <ion-textarea [(ngModel)]="title" type="text" (keyup)="onKey($event)"></ion-textarea>
+       </ion-item>
+
     <markdown [data]="markdown"></markdown>
   </div>
 
