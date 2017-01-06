@@ -3,6 +3,7 @@ import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { Storage } from '@ionic/storage';
 import { HomePage } from '../pages/home/home';
+import { CreateTodoPage } from '../pages/createTodo/createTodo';
 import { LoginPage } from '../pages/login-page/login-page';
 import { SignupPage } from '../pages/signup-page/signup-page';
 import { Todos } from '../providers/todos';
@@ -13,9 +14,10 @@ import { MarkdownComponent} from '../directives/markdown';
   declarations: [
     MyApp,
     HomePage,
+    CreateTodoPage,
     LoginPage,
     SignupPage,
-    MarkdownComponent    
+    MarkdownComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -24,6 +26,7 @@ import { MarkdownComponent} from '../directives/markdown';
   entryComponents: [
     MyApp,
     HomePage,
+    CreateTodoPage,
     LoginPage,
     SignupPage
   ],

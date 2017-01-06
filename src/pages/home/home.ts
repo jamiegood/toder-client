@@ -3,6 +3,7 @@ import { NavController, ModalController, AlertController, LoadingController } fr
 import { Todos } from '../../providers/todos';
 import { Auth } from '../../providers/auth';
 import { LoginPage } from '../login-page/login-page';
+import { CreateTodoPage } from '../createTodo/createTodo';
 
 @Component({
   selector: 'home-page',
@@ -16,6 +17,14 @@ export class HomePage {
   constructor(public navCtrl: NavController, public todoService: Todos, public modalCtrl: ModalController,
     public alertCtrl: AlertController, public authService: Auth, public loadingCtrl: LoadingController) {
 
+  }
+
+  openModal(characterNum) {
+
+    console.log('openModal');
+    characterNum = {charNum: 0};
+    let modal = this.modalCtrl.create(CreateTodoPage, characterNum);
+    modal.present();
   }
 
   ionViewDidLoad(){
