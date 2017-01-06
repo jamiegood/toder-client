@@ -67,6 +67,8 @@ export class LoginPage {
             password: this.password
         };
 
+        console.log(credentials);
+
         this.authService.login(credentials).then((result) => {
             this.loading.dismiss();
             console.log(result);

@@ -16,11 +16,8 @@ export class MarkdownComponent {
   ngOnChanges() {
     console.log('1 - '+marked(this.data));
     var md = marked.setOptions({});
-    //this.convertedData = marked(this.data);
-    this.convertedData = md.parse(this.data);
-    //this.convertedData = md.parse("# Jamie was here *bold* ");
-    console.log("BEFORE:: ", this.data);
-    console.log("AFTER:: ", this.convertedData);
+    this.convertedData = marked(this.data);
+    //this.convertedData = md.parse(this.data);
 
   }
 }
